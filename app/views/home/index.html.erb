@@ -1,0 +1,94 @@
+<div class="jumbotron">
+  <div class="container">
+      <h1>Encontre os Meis de forma rápida e fácil</h1>
+      <p>Ache os serviços ou produtos que você precisa e que estão sendo oferencidos pelos MEIs na cidade do recife</p>
+      <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form">
+            <div class="row" align="center">
+              <div class="col-md-12">
+              <div class="form-group">
+                  <%= form_tag(:action=> "index", :controller=> "home", :method=> "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Pesquise"%>
+                    <%= submit_tag "Pesquise", class: "btn btn-success"%>
+                  <% end %>
+              </div>
+          </div>
+            </div>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  
+  <div class="col-md-8">
+    <% if @meis != nil %>
+    <% @meis.each do |mei| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= mei.nome %></h3>
+           </div>
+           <div class="panel-body">
+             <p><strong>Descricao da atividade:</strong></p>
+             <%= mei.descricao_atividade %>
+            <br>
+            <div>
+              <br>
+            <%= link_to 'Mostrar Mais', mei, class: 'btn btn-sm btn-info' %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% end %>
+    </div>
+    
+  <div class="col-md-2">
+  </div>
+</div>
+
+<!--
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="list-group">    
+          <ul class="nav nav-sidebar">
+            <li><a href="#Electrician" class="list-group-item">Eletricista</a></li>            
+            <li><a href="#Joiner" class="list-group-item">Marceneiro</a></li>
+            <li><a href="#Mason" class="list-group-item">Pedreiro</a></li>
+            <li><a href="#Plumber" class="list-group-item">Encanador</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="#Hair" class="list-group-item">Cabelereiro</a></li>
+            <li><a href="#Painter" class="list-group-item">Pintor</a></li>
+            <li><a href="#Tailor" class="list-group-item">Alfaiate</a></li>
+            <li><a href="#Programmer" class="list-group-item">Programador</a></li>
+            <li><a href="#Door" class="list-group-item">Porteiro</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="#Engineer" class="list-group-item">Engenheiro</a></li>
+            <li><a href="#Doctor" class="list-group-item">Médico</a></li>
+            <li><a href="#Lawyer" class="list-group-item">Advogado</a></li>
+          </ul>
+        </div>
+        </div>
+        </div>
+      </div>
+      
+<!-- Example row of columns -->
+<div class="row">
+  <div class="col-md-6" align="center">
+    <h2>Você já é um MEI ?</h2>
+    <p>Bem-vindo ao nosso portal MEI a MEI. Acesse agora mesmo a sua conta: </p>
+    <p><a class="btn btn-default" href="#" role="button">Acesse já &raquo;</a></p>
+  </div>
+  
+  <div class="col-md-6" align="center">
+    <h2>Ainda não é MEI?</h2>
+    <p>Descubra como se tornar um MEI, seus benebícios e como participar do mei a mei</p>
+    <p><a class="btn btn-default" href="#" role="button">Descobrir &raquo;</a></p>
+  </div>
+</div>
